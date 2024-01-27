@@ -67,8 +67,7 @@ facid   name    membercost
 5   Massage Room 2  9.9 
 ```
 
-/* Q5: Produce a list of facilities, with each labelled as
-'cheap' or 'expensive', depending on if their monthly maintenance cost is more than $100. Return the name and monthly maintenance of the facilities
+/* Q5: Produce a list of facilities, with each labelled as 'cheap' or 'expensive', depending on if their monthly maintenance cost is more than $100. Return the name and monthly maintenance of the facilities
 in question. */
 ```
 SELECT `name`, `monthlymaintenance`,
@@ -83,7 +82,8 @@ ORDER BY `monthlymaintenance` DESC;
 
 /* Q6: You'd like to get the first and last name of the last member(s)
 who signed up. Try not to use the LIMIT clause for your solution. */
-```SELECT `surname`, `firstname` 
+```
+SELECT `surname`, `firstname` 
     FROM `Members` 
     WHERE `joindate` = (SELECT MAX(`joindate`) 
         FROM `Members`);
@@ -193,7 +193,8 @@ Squash Court    GUEST, GUEST    35.0
 Squash Court    GUEST, GUEST    35.0    
 ```
 /* Q9: This time, produce the same result as in Q8, but using a subquery. */
-```SELECT *
+```
+SELECT *
 FROM (
     SELECT f.`name` AS facility_name,
            CONCAT(m.`surname`, ', ', m.`firstname`) AS member_name,
@@ -225,21 +226,9 @@ Squash Court    GUEST, GUEST    35.0
 ```
 
 /* PART 2: SQLite
-/* We now want you to jump over to a local instance of the database on your machine. 
-Copy and paste the LocalSQLConnection.py script into an empty Jupyter notebook, and run it. 
 
-Make sure that the SQLFiles folder containing thes files is in your working directory, and
-that you haven't changed the name of the .db file from 'sqlite\db\pythonsqlite'.
-
-You should see the output from the initial query 'SELECT * FROM FACILITIES'.
-
-Complete the remaining tasks in the Jupyter interface. If you struggle, feel free to go back to the PHPMyAdmin interface as and when you need to. 
-
-You'll need to paste your query into value of the 'query1' variable and run the code block again to get an output.
- 
-QUESTIONS:
-/* Q10: Produce a list of facilities with a total revenue less than 1000.
-The output of facility name and total revenue, sorted by revenue. Remember
+QUESTIONS: (see notebook)
+/* Q10: Produce a list of facilities with a total revenue less than 1000. The output of facility name and total revenue, sorted by revenue. Remember
 that there's a different cost for guests and members! */
 
 /* Q11: Produce a report of members and who recommended them in alphabetic surname,firstname order */
